@@ -1,9 +1,5 @@
 import numpy as np
 import os.path
-# import pickle
-import matplotlib.pyplot as plt
-
-
 
 key_file = {
     "train_img": "train-images.idx3-ubyte",
@@ -40,11 +36,6 @@ def _convert_numpy(dataset_dir):
 
 
 def _load_label(file_name):
-    # file_path = dataset_dir + "/" + file_name
-
-    # print("Converting " + file_name + " to NumPy Array ...")
-    # with gzip.open(file_path, 'rb') as f:
-    #         labels = np.frombuffer(f.read(), np.uint8, offset=8)
     with open(file_name, "rb") as f:
         # 헤더 정보 읽기
         magic = int.from_bytes(f.read(4), "big")  # 매직 넘버
@@ -61,12 +52,6 @@ def _load_label(file_name):
 
 
 def _load_img(file_name):
-    # file_path = dataset_dir + "/" + file_name
-
-    # print("Converting " + file_name + " to NumPy Array ...")
-    # with gzip.open(file_path, 'rb') as f:
-    #         data = np.frombuffer(f.read(), np.uint8, offset=16)
-    # data = data.reshape(-1, img_size)
     with open(file_name, "rb") as f:
         # 헤더 정보 읽기
         magic = int.from_bytes(f.read(4), "big")  # 매직 넘버
